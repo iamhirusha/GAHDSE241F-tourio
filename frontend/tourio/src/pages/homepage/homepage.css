@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  .homepage {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .tab-bar {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .tab {
+    font-size: 16px;
+    color: #888;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .tab.active {
+    color: black;
+    font-weight: bold;
+  }
+  
+  .tab.active::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: black;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    border-radius: 2px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .profile-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+  }
+  
