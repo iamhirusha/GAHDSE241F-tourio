@@ -16,6 +16,7 @@ class PubRequestAdapter(
         val reqDes1TextView: TextView = itemView.findViewById(R.id.pubReqDes1)
         val reqDes2TextView: TextView = itemView.findViewById(R.id.pubReqDes2)
         val reqBudgetTextView: TextView = itemView.findViewById(R.id.pubReqBudget)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PubRequestViewHolder {
@@ -29,6 +30,7 @@ class PubRequestAdapter(
         holder.reqDes1TextView.text = pubRequest.destination1
         holder.reqDes2TextView.text = pubRequest.destination2
         holder.reqBudgetTextView.text = pubRequest.acceptedBudget
+
     }
 
     override fun getItemCount(): Int {

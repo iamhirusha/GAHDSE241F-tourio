@@ -69,7 +69,7 @@ class BookTourActivity : AppCompatActivity() {
                             .load(preTourImgUrl)
                             .into(preTourCoverImg)
                     } else {
-                        preTourCoverImg.setImageResource(R.drawable.ic_message)
+                        preTourCoverImg.setImageResource(R.drawable.img_defaultimage)
                     }
                 }
             }
