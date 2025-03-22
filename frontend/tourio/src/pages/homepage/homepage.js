@@ -1,48 +1,87 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./../pages/homepage/homepage.css";
-import logo from "../assets/logo.png";
-import profileIcon from "../assets/profile-icon.png";
+import { Outlet } from "react-router-dom";
+import Header from "../../components/header";
+import './homepage.css';
+import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
+import TourComponent from "../../components/tourcomponent";
 
 const HomePage = () => {
-  const [activeTab, setActiveTab] = useState("tours");
-  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("home");
+  const [searchQuery, setSearchQuery] = useState(""); 
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-    navigate(`/${tab}`);
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
+
+  const handleSearchSubmit = () => {
+    console.log("Searching for:", searchQuery);
+  };
+
+  const tours = [
+    {
+      image: require('../../assets/images/img_bali_1.jpg'),
+      title: "Beach Paradise",
+      destinations: "Hawaii, Maldives, Bali",
+      price: "$999"
+    },
+    {
+      image: require('../../assets/images/img_rome_1.jpg'),
+      title: "European Escape",
+      destinations: "Paris, London, Rome",
+      price: "$1299"
+    },
+    {
+      image: require('../../assets/images/img_sigiriya_1.png'),
+      title: "Roaming Countryside",
+      destinations: "Dambulla, Sri Lanka",
+      price: "$899"
+    },
+    {
+      image: require('../../assets/images/img_kathmandu_1.jpg'),
+      title: "Mountain Trekking",
+      destinations: "Nepal, Tibet",
+      price: "$799"
+    }
+  ];
 
   return (
     <div className="homepage">
-      {/* Header */}
-      <header className="header">
-        <img src={logo} alt="Logo" className="logo" />
-        <nav className="tab-bar">
-          <span
-            className={`tab ${activeTab === "tours" ? "active" : ""}`}
-            onClick={() => handleTabClick("tours")}
-          >
-            Tours
-          </span>
-          <span
-            className={`tab ${activeTab === "hotels" ? "active" : ""}`}
-            onClick={() => handleTabClick("hotels")}
-          >
-            Hotels
-          </span>
-          <span
-            className={`tab ${activeTab === "requests" ? "active" : ""}`}
-            onClick={() => handleTabClick("requests")}
-          >
-            Requests
-          </span>
-        </nav>
-        <div className="profile">
-          <img src={profileIcon} alt="Profile" className="profile-icon" />
-          <span className="profile-name">John Doe</span>
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      
+      <div className="page-content">
+        <div className="search-bar-container">
+          <input 
+            type="text" 
+            value={searchQuery} 
+            onChange={handleSearchChange} 
+            className="search-bar"
+            placeholder="Search tours"
+          />
+          <button className="search-button" onClick={handleSearchSubmit}>
+            <SearchIcon className="search-icon" />
+          </button>
+        </div> 
+
+        <div class="tour-section">
+          <h2 class="tour-section-title">Explore Our Handcrafted Tour Plans</h2>
+          <p class="tour-section-tagline">Explore, discover, and make memories that last forever.</p>
         </div>
-      </header>
+
+        <div className="tours-container">
+          <div className="tour-list">
+            {tours.map((tour, index) => (
+              <TourComponent
+                key={index}
+                image={tour.image}
+                title={tour.title}
+                destinations={tour.destinations}
+                price={tour.price}
+              />
+            ))}
+          </div>
+        </div>
+        <Outlet />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,81 @@
+.tour-card {
+    background-color: white;
+    border-radius: 16px;
+    width: 250px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .tour-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .tour-image-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+  }
+  
+  .tour-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 16px;
+    margin: 0px;
+  }
+  
+  .bookmark-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    cursor: pointer;
+  }
+  
+  .arrow-icon {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    fill: #333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow-icon:hover {
+    transform: translateY(-3px);
+  }
+  
+  .tour-info {
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .tour-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 8px 0;
+  }
+  
+  .tour-destinations {
+    font-size: 14px;
+    color: #888;
+    margin: 4px 0;
+  }
+  
+  .tour-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 8px 0;
+  }
+  
