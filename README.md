@@ -34,21 +34,7 @@ The Tour Plan Management System is a web and mobile application designed to stre
 - *Database*: Google Firebase
 - *Authentication*: Firebase Authentication
 
-## Repository Structure
 
-/tour-plan-management
-│── frontend/                
-│── backend/                 
-│── database/                
-│── mobile/                    
-│── README.md                
-   
-
-## Contributing
-1. Fork the repository.
-2. Create a new branch: git checkout -b feature-branch
-3. Commit changes and push: git push origin feature-branch
-4. Open a Pull Request.
 
 ## Repository URL
 [GitHub Repository](https://github.com/NIBM-GALLE/GAHDSE241F-tourio)
