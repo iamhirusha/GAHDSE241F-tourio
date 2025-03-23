@@ -42,29 +42,6 @@ The Tour Plan Management System is a web and mobile application designed to stre
 │── database/                
 │── mobile/                    
 │── README.md                
-
-
-## Installation
-### Prerequisites
-- Node.js & npm
-- PostgreSQL/MongoDB
-
-### Steps
-1. Clone the repository:
-   sh
-   git clone https://github.com/NIBM-GALLE/GAHDSE241F-tourio.git
-   cd GAHDSE241F-tourio
-   
-2. Install dependencies:
-   sh
-   cd backend && npm install
-   cd ../frontend && npm install
-   
-3. Configure environment variables.
-4. Start the backend and frontend:
-   sh
-   cd backend && npm start
-   cd ../frontend && npm start
    
 
 ## Contributing
@@ -72,9 +49,6 @@ The Tour Plan Management System is a web and mobile application designed to stre
 2. Create a new branch: git checkout -b feature-branch
 3. Commit changes and push: git push origin feature-branch
 4. Open a Pull Request.
-
-## License
-This project is licensed under the MIT License.
 
 ## Repository URL
 [GitHub Repository](https://github.com/NIBM-GALLE/GAHDSE241F-tourio)
