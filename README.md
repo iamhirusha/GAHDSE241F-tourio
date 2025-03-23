@@ -29,22 +29,19 @@ The Tour Plan Management System is a web and mobile application designed to stre
    - Travelers can leave feedback for guides and hotels.
    
 ## Tech Stack
-- *Frontend*: React.js (Web), React Native (Mobile)
-- *Backend*: Node.js with Express.js
-- *Database*: PostgreSQL or MongoDB
-- *Authentication*: JWT-based authentication
-- *Hosting*: AWS / Firebase
-- *Payment Gateway*: Stripe / PayPal
+- *Frontend*: React.js (Web), Kotlin (Mobile)
+- *Backend*: Node.js
+- *Database*: Google Firebase
+- *Authentication*: Firebase Authentication
 
 ## Repository Structure
 
 /tour-plan-management
-│── frontend/                # React.js (Web) & React Native (Mobile)
-│── backend/                 # Node.js + Express.js
-│── database/                # Database models and migrations
-│── docs/                    # Documentation
-│── tests/                   # Automated tests
-│── README.md                # Project overview
+│── frontend/                
+│── backend/                 
+│── database/                
+│── mobile/                    
+│── README.md                
 
 
 ## Installation
