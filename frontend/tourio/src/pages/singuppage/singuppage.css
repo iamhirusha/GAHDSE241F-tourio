@@ -1,0 +1,124 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+  }
+  
+ 
+  .signup-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    width: 350px; /* Slightly compact size */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .signup-container:hover {
+    transform: scale(1.02);
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+
+  form {
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    margin: 8px 0 3px;
+  }
+  
+ 
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus, select:focus {
+    border-color: #4facfe;
+    box-shadow: 0px 0px 6px rgba(79, 172, 254, 0.5);
+  }
+  
+ 
+  select {
+    appearance: none;
+    background: url("data:image/svg+xml;utf8,<svg fill='%23444' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")
+      no-repeat right 10px center;
+    background-size: 14px;
+    padding-right: 30px;
+    cursor: pointer;
+  }
+  
+ 
+  .age-country {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .age-country div {
+    width: 50%;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4facfe, #00c6ff);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+  }
+  
+  button[type="submit"]:hover {
+    background: linear-gradient(to right, #3383f0, #0099cc);
+    transform: scale(1.03);
+  }
+  
+  /* 📱 Responsive */
+  @media (max-width: 400px) {
+    .signup-container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  
+    input, select, button {
+      font-size: 13px;
+    }
+  }
+  
