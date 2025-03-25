@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val getStartedButton: Button = findViewById(R.id.getstarted_button)
         getStartedButton.setOnClickListener {
-           val intent = Intent(this, SignUpActivity::class.java)
+           val intent = Intent(this, MapsPageActivity::class.java)
             startActivity(intent)
         }
     }
