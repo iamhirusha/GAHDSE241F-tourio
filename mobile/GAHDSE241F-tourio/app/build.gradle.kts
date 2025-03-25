@@ -58,6 +58,9 @@ dependencies {
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
 
+    // OSMDroid for OpenStreetMap
+    implementation("org.osmdroid:osmdroid-android:6.1.11")
+
     //Forget password Authentication
     //implementation 'com.google.firebase:firebase-auth-ktx'
 
