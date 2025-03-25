@@ -4,6 +4,7 @@ import HomePage from "./pages/homepage/homepage";
 import HotelsPage from "./pages/hotelspage/hotelspage";
 import RequestsPage from "./pages/requestspage/requestspage";
 import Login from "./pages/loginpage/loginpage";
+import Signup from "./pages/singuppage/singuppage";
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path="/hotels" element={<HotelsPage />} />
         <Route path="/requests" element={<RequestsPage />} />
         <Route path="/loginpage" element={<Login/>} />
+        <Route path="/singuppage" element={<Signup/>} />
       </Routes>
     </Router>
   );
