@@ -47,6 +47,5 @@ class PaymentActivity : AppCompatActivity() {
             }
         }
 
-        Toast.makeText(this, "Payment Successful with $paymentMethod", Toast.LENGTH_SHORT).show()
-    }
+        Toast.makeText(this, "Payment Successful with $paymentMethod", Toast.LENGTH_SHORT).show()}
 }
