@@ -1,109 +1,148 @@
-
+/* General styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    /*background: linear-gradient(to right, #0554a8, #95c5d3);*/
-  }
-  
-  
-  .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .container:hover {
-    transform: scale(1.02);
-  }
-  
-  
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  
-  input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  input:focus {
-    border-color: #007bff;
-    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
-  }
-  
- 
-  button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(to right, #007bff, #00c6ff);
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  button:hover {
-    background: linear-gradient(to right, #074c91, #0099cc);
-    transform: scale(1.05);
-  }
-  
-  /* 🔗 Sign-up Link */
-  .link {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .link a {
-    color: #007bff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .link a:hover {
-    color: #2a81c4;
-    text-decoration: underline;
-  }
-  
- 
-  @media (max-width: 400px) {
-    .container {
-      width: 90%;
-      padding: 20px;
-    }
-  
-    h2 {
-      font-size: 22px;
-    }
-  
-    input, button {
-      font-size: 14px;
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login Box */
+.login-box {
+  width: 900px;
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section */
+.left-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.left-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.left-section h2 span {
+  color: #336be4;
+}
+
+.left-section p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Options */
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.options a {
+  color: #324ecc;
+  text-decoration: none;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn {
+  flex: 1;
+  background: #e91e63;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  flex: 1;
+  background: transparent;
+  color: #e91e63;
+  border: 2px solid #e91e63;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background: #e91e63;
+  color: #fff;
+}
+
+/* Social Login */
+.social-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-buttons a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.facebook {
+  background: #3b5998;
+}
+
+.google {
+  background: #db4437;
+}
+
+/* Right Section (Image) */
+.right-section {
+  flex: 1;
+  background: url("https://source.unsplash.com/600x800/?nature,forest") no-repeat center;
+  background-size: cover;
+}

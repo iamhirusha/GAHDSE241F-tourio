@@ -1,0 +1,148 @@
+/* General Styles */
+body {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .payment-box {
+    width: 420px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  /* Saved Cards */
+  .saved-cards h3 {
+    font-size: 16px;
+    color: #444;
+    text-align: left;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f8f8;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: 0.3s ease;
+  }
+  
+  .card:hover {
+    background: #e0e0e0;
+  }
+  
+  .card-icon {
+    font-size: 28px;
+  }
+  
+  .mastercard {
+    color: #ff9800;
+  }
+  
+  .visa {
+    color: #007bff;
+  }
+  
+  .card span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .remove-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .remove-btn:hover {
+    background: #d63031;
+  }
+  
+  /* Add New Card */
+  .add-card {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  h3 {
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .input-group {
+    margin: 10px 0;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .card-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card-details .input-group {
+    width: 48%;
+  }
+  
+  /* Add Card Button */
+  .add-btn {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background: #218838;
+  }
+  
