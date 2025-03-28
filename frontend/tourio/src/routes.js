@@ -7,6 +7,10 @@ import Login from "./pages/loginpage/loginpage";
 import Signup from "./pages/singuppage/singuppage";
 import SignupPage from "./pages/singuppage/singuppage";
 import Payment from "./pages/paymentpage/paymentpage";
+import TourForm from "./pages/touraddpage/touraddpage";
+import TourPage from "./pages/touraddpage/touraddpage";
+import TourCreationPage from "./pages/touraddpage/touraddpage";
+import TourAddPage from "./pages/touraddpage/touraddpage";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +23,7 @@ const AppRoutes = () => {
         <Route path="/loginpage" element={<Login/>} />
         <Route path="/singuppage" element={<SignupPage/>} />
         <Route path="/paymentpage" element={<Payment/>} />
+        <Route path="/touraddpage" element={<TourCreationPage/>} />
       </Routes>
     </Router>
   );
