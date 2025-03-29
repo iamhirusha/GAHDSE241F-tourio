@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../../components/header";
-import './homepage.css';
 import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
+import Header from "../../components/header";
 import TourComponent from "../../components/tourcomponent";
+import './homepage.css';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState("home");
