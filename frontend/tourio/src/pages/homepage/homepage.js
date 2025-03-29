@@ -41,7 +41,7 @@ const HomePage = () => {
       title: "Mountain Trekking",
       destinations: "Nepal, Tibet",
       price: "$799"
-    }
+    },
   ];
 
   return (
