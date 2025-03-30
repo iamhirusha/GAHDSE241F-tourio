@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './singuppage.css';
+import { ReactComponent as WarrantyIcon } from '../../assets/icons/icon_warranty.svg';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -124,9 +125,22 @@ const SignupPage = () => {
           </div>
 
           <div className="signup-illustration">
-            <div className="illustration-content">
-              <h3>Welcome to Our Platform</h3>
-              <p>Discover a world of opportunities and connections</p>
+            <div className="illustration-image">
+              <div className="illustration-content">
+                <h3>Tourio Ensures Your Enjoy.</h3>
+                <p>Discover a world of opportunities and connections</p>
+
+                <div className="button-container">
+                  <button className="spbutton">
+                    <WarrantyIcon className="icon" />
+                    Ensure Value
+                  </button>
+                  <button className="spbutton">
+                    <WarrantyIcon className="icon" />
+                    Ensure Safety
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

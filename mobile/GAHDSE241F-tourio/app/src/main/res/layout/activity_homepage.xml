@@ -26,8 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="30dp"
-                android:paddingVertical="24dp">
+                android:paddingHorizontal="26dp"
+                android:paddingVertical="22dp">
 
                 <View
                     android:layout_width="48dp"
@@ -76,8 +76,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Explore your dream
-                    destinations"
+                    android:text="Explore Your Dream!"
                     android:textSize="22sp"
                     android:lineHeight="30dp"
                     android:textStyle="bold"
@@ -123,9 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
-
-            <!-- Popular Tours-->
+            android:paddingHorizontal="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,14 +138,26 @@
                 android:layout_height="match_parent"
                 android:fillViewport="true">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/homePreDefToursRecyclerView"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingVertical="16dp"
-                    tools:listitem="@layout/tour_card_item" />
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/homePreDefToursRecyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        tools:listitem="@layout/tour_card_item" />
+                </HorizontalScrollView>
             </androidx.core.widget.NestedScrollView>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Most Visited"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
 
         </LinearLayout>
     </LinearLayout>

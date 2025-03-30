@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaCcMastercard, FaCcVisa } from "react-icons/fa";
+
 import "./paymentpage.css";
 
 const Payment = () => {
@@ -49,7 +49,7 @@ const Payment = () => {
           <h3>Saved Cards:</h3>
           {cards.map((card) => (
             <div key={card.id} className="card">
-              {card.type === "visa" ? <FaCcVisa className="card-icon visa" /> : <FaCcMastercard className="card-icon mastercard" />}
+              {/*card.type === "visa" ? <FaCcVisa className="card-icon visa" /> : <FaCcMastercard className="card-icon mastercard" />*/}
               <span>{card.number}</span>
               <button className="remove-btn" onClick={() => handleRemove(card.id)}>Remove</button>
             </div>
