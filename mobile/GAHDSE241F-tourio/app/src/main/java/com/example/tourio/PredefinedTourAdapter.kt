@@ -46,7 +46,7 @@ class PredefinedTourAdapter(
                 .load(preDefTourImgUrl)  // Load image from Firebase Storage URL
                 .into(holder.preDefTourImageView)  // Set the image in ImageView
         } else {
-            holder.preDefTourImageView.setImageResource(R.drawable.img_sigiriya_1) // Set a default image if no URL is available
+            holder.preDefTourImageView.setImageResource(R.drawable.img_sigiriya_1) // default image
         }
     }
 
