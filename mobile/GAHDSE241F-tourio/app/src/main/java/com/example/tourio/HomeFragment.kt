@@ -25,13 +25,14 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.activity_homepage, container, false)
 
-        // Initialize the RecyclerView
         val recyclerView = rootView.findViewById<RecyclerView>(R.id.homePreDefToursRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Set the LayoutManager with horizontal orientation
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         // Initialize the adapter and set the item click listener
         adapter = PredefinedTourAdapter(preDefTourList) { preDefTourId ->
-            // Handle item click and navigate to hotel details
+            // navigate to hotel details
             val intent = Intent(activity, BookTourActivity::class.java)
             intent.putExtra("preDefTourId", preDefTourId)
             startActivity(intent)
