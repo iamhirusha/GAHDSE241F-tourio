@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
+import { ReactComponent as AddIcon } from '../../assets/icons/icon_add.svg';
 import Header from "../../components/header";
 import TourComponent from "../../components/tourcomponent";
 import './homepage.css';
@@ -80,6 +81,36 @@ const HomePage = () => {
             ))}
           </div>
         </div>
+
+        <div className="goto-reqpage-section">
+          <div className="goto-reqpage-text">
+            <h2 className="goto-reqpage-title">Can't find exact tour?</h2>
+            <p className="goto-reqpage-subtext">Simply publish a tour request with your preferences.</p>
+          </div>
+          <button className="goto-reqpage-button">
+            <AddIcon className="search-icon" /> Create Request
+          </button>
+        </div>
+
+        <div class="tour-section">
+          <h2 class="tour-section-title">Most Visited Destinations</h2>
+          <p class="tour-section-tagline">Explore, discover, and make memories that last forever.</p>
+        </div>
+
+        <div className="tours-container">
+          <div className="tour-list">
+            {tours.map((tour, index) => (
+              <TourComponent
+                key={index}
+                image={tour.image}
+                title={tour.title}
+                destinations={tour.destinations}
+                price={tour.price}
+              />
+            ))}
+          </div>
+        </div>
+
         <Outlet />
       </div>
     </div>
