@@ -2,6 +2,6 @@ const express = require('express');
 const { getPredefinedTours } = require('../controllers/tourController');
 const router = express.Router();
 
-router.get('/api/tours', getPredefinedTours);
+router.get('/', getPredefinedTours);
 
 module.exports = router;
