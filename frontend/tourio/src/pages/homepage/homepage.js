@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
 import { ReactComponent as AddIcon } from '../../assets/icons/icon_add.svg';
+import { useEffect} from 'react';
 import Header from "../../components/header";
 import TourComponent from "../../components/tourcomponent";
 import './homepage.css';
@@ -18,32 +19,15 @@ const HomePage = () => {
     console.log("Searching for:", searchQuery);
   };
 
-  const tours = [
-    {
-      image: require('../../assets/images/img_bali_1.jpg'),
-      title: "Beach Paradise",
-      destinations: "Hawaii, Maldives, Bali",
-      price: "$999"
-    },
-    {
-      image: require('../../assets/images/img_rome_1.jpg'),
-      title: "European Escape",
-      destinations: "Paris, London, Rome",
-      price: "$1299"
-    },
-    {
-      image: require('../../assets/images/img_sigiriya_1.png'),
-      title: "Roaming Countryside",
-      destinations: "Dambulla, Sri Lanka",
-      price: "$899"
-    },
-    {
-      image: require('../../assets/images/img_kathmandu_1.jpg'),
-      title: "Mountain Trekking",
-      destinations: "Nepal, Tibet",
-      price: "$799"
-    },
-  ];
+  const [tours, setTours] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/tours')
+      .then(res => res.json())
+      .then(data => setTours(data))
+      .catch(err => console.error(err));
+  }, []);
+  
 
   return (
     <div className="homepage">
