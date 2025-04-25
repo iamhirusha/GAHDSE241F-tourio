@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const tourRoutes = require('./src/routes/tourRoutes');
-const sampleRoutes = require('./src/routes/sampleRoutes');
+const hotelRoutes = require('./src/routes/hotelRoutes');
 
 const app = express();
 
@@ -16,5 +16,6 @@ app.get('/', (req, res) => {
 
 // API Routes
 app.use('/api/tours', tourRoutes);
+app.use('/api/hotels', hotelRoutes);
 
 module.exports = app;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/header";
 import HotelComponent from "../../components/hotelcomponent";
+import { useEffect} from 'react';
 import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
 import './hotelspage.css';
 
@@ -17,32 +18,14 @@ const HotelsPage = () => {
       console.log("Searching for:", searchQuery);
     };
 
-  const hotels = [
-    {
-      image: require('../../assets/images/img_bali_1.jpg'),
-      name: "Hotel Paradise",
-      location: "Luxury Hotel with precious services and adventures. Bali, Indonesia",
-      price: "$120 per night"
-    },
-    {
-      image: require('../../assets/images/img_bali_1.jpg'),
-      name: "Hotel Royale",
-      location: "Luxury Hotel with precious services and adventures. Paris, France",
-      price: "$180 per night"
-    },
-    {
-      image: require('../../assets/images/img_bali_1.jpg'),
-      name: "Sunset Resort",
-      location: "Luxury Hotel with precious services and adventures. Maldives",
-      price: "$250 per night"
-    },
-    {
-      image: require('../../assets/images/img_bali_1.jpg'),
-      name: "Oceanview Retreat",
-      location: "Luxury Hotel with precious services and adventures. Hawaii, USA",
-      price: "$220 per night"
-    }
-  ];
+    const [hotels, setTours] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/hotels')
+          .then(res => res.json())
+          .then(data => setTours(data))
+          .catch(err => console.error(err));
+      }, []);
 
   return (
     <div className="hotelspage">
@@ -73,10 +56,10 @@ const HotelsPage = () => {
               {hotels.map((hotel, index) => (
                 <HotelComponent
                   key={index}
-                  image={hotel.image}
-                  name={hotel.name}
-                  location={hotel.location}
-                  price={hotel.price}
+                  image={hotel.hotelImage}
+                  name={hotel.hotelName}
+                  description={hotel.hotelDescription}
+                  price={hotel.hotelAddress}
                 />
               ))}
             </div>
