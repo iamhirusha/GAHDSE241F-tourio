@@ -1,5 +1,4 @@
-// index.js
-const app = require('./app'); // 👉 Import the Express app setup from app.js
+const app = require('./app'); // Import express app setup from app.js
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
