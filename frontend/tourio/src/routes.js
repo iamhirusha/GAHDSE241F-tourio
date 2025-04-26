@@ -11,6 +11,8 @@ import TourForm from "./pages/touraddpage/touraddpage";
 import TourPage from "./pages/touraddpage/touraddpage";
 import TourCreationPage from "./pages/touraddpage/touraddpage";
 import TourAddPage from "./pages/touraddpage/touraddpage";
+import App from "./App";
+import HotelProfile from "./pages/hotelprofilepage/hotelprofilepage";
 
 const AppRoutes = () => {
   return (
@@ -24,6 +26,9 @@ const AppRoutes = () => {
         <Route path="/singuppage" element={<SignupPage/>} />
         <Route path="/paymentpage" element={<Payment/>} />
         <Route path="/touraddpage" element={<TourCreationPage/>} />
+        <Route path="/hotelprofilepage" element={<HotelProfile/>} />
+
+        <Route path="/aa" element={<App/>} />
       </Routes>
     </Router>
   );
