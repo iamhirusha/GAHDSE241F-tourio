@@ -1,19 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/homepage/homepage";
-import HotelsPage from "./pages/hotelspage/hotelspage";
-import RequestsPage from "./pages/requestspage/requestspage";
-import Login from "./pages/loginpage/loginpage";
-import Signup from "./pages/singuppage/singuppage";
-import SignupPage from "./pages/singuppage/singuppage";
-import Payment from "./pages/paymentpage/paymentpage";
-import TourForm from "./pages/touraddpage/touraddpage";
-import TourPage from "./pages/touraddpage/touraddpage";
-import TourCreationPage from "./pages/touraddpage/touraddpage";
-import TourAddPage from "./pages/touraddpage/touraddpage";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import App from "./App";
+import HomePage from "./pages/homepage/homepage";
+import HotelDashboard from "./pages/hoteldashboard/HotelDashboard";
 import HotelProfile from "./pages/hotelprofilepage/hotelprofilepage";
-
+import HotelsPage from "./pages/hotelspage/hotelspage";
+import Login from "./pages/loginpage/loginpage";
+import Payment from "./pages/paymentpage/paymentpage";
+import RequestsPage from "./pages/requestspage/requestspage";
+import SignupPage from "./pages/singuppage/singuppage";
+import TourCreationPage from "./pages/touraddpage/touraddpage";
 const AppRoutes = () => {
   return (
     <Router>
@@ -27,6 +23,7 @@ const AppRoutes = () => {
         <Route path="/paymentpage" element={<Payment/>} />
         <Route path="/touraddpage" element={<TourCreationPage/>} />
         <Route path="/hotelprofilepage" element={<HotelProfile/>} />
+        <Route path="/hoteldashboard" element={<HotelDashboard />} />
 
         <Route path="/aa" element={<App/>} />
       </Routes>
