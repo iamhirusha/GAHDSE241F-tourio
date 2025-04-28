@@ -8,7 +8,7 @@ import Signup from "./pages/singuppage/singuppage";
 import SignupPage from "./pages/singuppage/singuppage";
 import Payment from "./pages/paymentpage/paymentpage";
 import TourForm from "./pages/touraddpage/touraddpage";
-import TourPage from "./pages/touraddpage/touraddpage";
+import TourPage from "./pages/tourpage/tourpage";
 import TourCreationPage from "./pages/touraddpage/touraddpage";
 import TourAddPage from "./pages/touraddpage/touraddpage";
 import App from "./App";
@@ -25,9 +25,9 @@ const AppRoutes = () => {
         <Route path="/loginpage" element={<Login/>} />
         <Route path="/singuppage" element={<SignupPage/>} />
         <Route path="/paymentpage" element={<Payment/>} />
-        <Route path="/touraddpage" element={<TourCreationPage/>} />
+        <Route path="/touraddpage" element={<TourCreationPage/>
+        <Route path="/tourpg" element={<TourPage/>} />
         <Route path="/hotelprofilepage" element={<HotelProfile/>} />
-
         <Route path="/aa" element={<App/>} />
       </Routes>
     </Router>
