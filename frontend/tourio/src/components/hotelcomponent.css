@@ -1,6 +1,6 @@
 .hotel-card {
     background-color: white;
-    border-radius: 12px;
+    border-radius: 16px;
     width: 100%;
     max-width: 650px;
     box-shadow: 1px 8px 16px rgba(0, 0, 0, 0.2);
@@ -17,6 +17,9 @@
   }
   
   .hotel-image-container {
+    text-align: center;
+    background-color: rgb(231, 231, 231);
+    color: rgb(187, 187, 187);
     width: 240px;
     height: 100%;
     border-radius: 16px 0 0 16px;

@@ -37,16 +37,25 @@ const getPredefinedTourById = async (req, res) => {
     const doc = snapshot.docs[0];
     const data = doc.data();
 
+    const destinations = [
+      { name: data.destination1, coords: data.des1MapUrl },
+      { name: data.destination2, coords: data.des2MapUrl },
+      { name: data.destination3, coords: data.des3MapUrl },
+      { name: data.destination4, coords: data.des4MapUrl },
+      { name: data.destination5, coords: data.des5MapUrl },
+    ].map(dest => {
+      const [lat, lng] = dest.coords.split(',').map(Number); // convert "7.95, 80.75" to [7.95, 80.75]
+      return {
+        name: dest.name,
+        lat,
+        lng
+      };
+    });
+
     res.status(200).json({
       image: data.preTourImgUrl,
       title: data.tourTitle,
-      destinations: [
-        { name: data.destination1, mapUrl: data.des1MapUrl },
-        { name: data.destination2, mapUrl: data.des2MapUrl },
-        { name: data.destination3, mapUrl: data.des3MapUrl },
-        { name: data.destination4, mapUrl: data.des4MapUrl },
-        { name: data.destination5, mapUrl: data.des5MapUrl },
-      ],
+      destinations,
       facilities: data.facilities,
       price: data.tourPrice,
       preDefTourId: data.preDefTourId,
@@ -57,5 +66,6 @@ const getPredefinedTourById = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch tour' });
   }
 };
+
 
 module.exports = { getPredefinedTours, getPredefinedTourById };
