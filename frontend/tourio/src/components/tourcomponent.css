@@ -60,9 +60,9 @@
   }
   
   .tour-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    color: #333;
+    color: #222222;
     margin: 8px 0;
   }
   
@@ -73,7 +73,7 @@
   }
   
   .tour-price {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
     margin: 8px 0;

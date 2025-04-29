@@ -2,7 +2,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 40px;
-    padding: 20px 80px;
+    padding: 20px 100px;
     color: #1c1c1e;
     background-color: #f5f5f7;
   }
@@ -13,6 +13,15 @@
     display: flex;
     gap: 40px;
     margin-bottom: 60px;
+  }
+
+  .image-container {
+    background-color: rgb(233, 233, 233);
+    border-radius: 16px;
+    height: 500px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
   }
   
   .image-container img {
@@ -30,21 +39,21 @@
     justify-content: center;
   }
   
-  .tour-title {
-    font-size: 2rem;
+  .tourpg-title {
+    font-size: 30px;
     margin-bottom: 10px;
     font-weight: 600;
   }
   
-  .tour-facilities,
-  .tour-description,
-  .tour-price {
+  .tourpg-facilities,
+  .tourpg-description,
+  .tourpg-price {
     font-size: 1rem;
     margin: 8px 0;
   }
   
-  .tour-price {
-    font-size: 1.25rem;
+  .tourpg-price {
+    font-size: 24px;
     font-weight: bold;
     color: #1f1f1f;
   }
@@ -53,7 +62,7 @@
     margin-top: 20px;
     padding: 12px 24px;
     font-size: 1rem;
-    background-color: #007aff;
+    background-color: #0c3a77;
     color: white;
     border: none;
     border-radius: 10px;
@@ -64,13 +73,17 @@
   .book-button:hover {
     background-color: #005fd1;
   }
-  
+
   .destinations-section {
+    margin-top: 30px;
+    padding-right: 80px;
     display: flex;
     gap: 40px;
   }
+
   
   .destinations-list {
+    padding-top: 30px;
     flex: 1;
   }
   
@@ -79,6 +92,8 @@
     align-items: flex-start;
     margin-bottom: 24px;
   }
+
+
   
   .bullet-point {
     width: 14px;
@@ -106,5 +121,22 @@
     background-color: #e5e5ea;
     border-radius: 12px;
     min-height: 300px;
+  }
+
+  .destinations-map {
+    width: 700px;
+    height: 600px;
+  }
+
+  .tourmap-text {
+    font-size: 16px;
+    margin: 8px 0;
+    padding-bottom: 20px;
+  }
+
+  .view-icon {
+    margin-right: 6px;
+    width: 22px;
+    height: 22px;
   }
   

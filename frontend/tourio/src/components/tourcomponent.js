@@ -18,7 +18,7 @@ const TourComponent = ({ image, title, destinations, price, preDefTourId }) => {
       </div>
       
       <div className="tour-info">
-        <h3 className="tour-title">{title}</h3>
+        <p className="tour-title">{title}</p>
         <p className="tour-destinations">{destinations}</p>
         <p className="tour-price">LKR {price}</p>
         <ArrowIcon className="arrow-icon" />
