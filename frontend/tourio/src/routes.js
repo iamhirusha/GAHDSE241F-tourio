@@ -7,8 +7,11 @@ import HotelProfile from "./pages/hotelprofilepage/hotelprofilepage";
 import HotelsPage from "./pages/hotelspage/hotelspage";
 import Login from "./pages/loginpage/loginpage";
 import Payment from "./pages/paymentpage/paymentpage";
+
 import RequestsPage from "./pages/requestspage/requestspage";
 import SignupPage from "./pages/singuppage/singuppage";
+import TourForm from "./pages/touraddpage/touraddpage";
+import TourPage from "./pages/tourpage/tourpage";
 import TourCreationPage from "./pages/touraddpage/touraddpage";
 const AppRoutes = () => {
   return (
@@ -21,10 +24,10 @@ const AppRoutes = () => {
         <Route path="/loginpage" element={<Login/>} />
         <Route path="/singuppage" element={<SignupPage/>} />
         <Route path="/paymentpage" element={<Payment/>} />
-        <Route path="/touraddpage" element={<TourCreationPage/>} />
+        <Route path="/touraddpage" element={<TourCreationPage/>
+        <Route path="/tourpg" element={<TourPage/>} />
         <Route path="/hotelprofilepage" element={<HotelProfile/>} />
         <Route path="/hoteldashboard" element={<HotelDashboard />} />
-
         <Route path="/aa" element={<App/>} />
       </Routes>
     </Router>
