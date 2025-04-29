@@ -68,6 +68,7 @@ const HomePage = () => {
                 title={tour.title}
                 destinations={tour.destinations}
                 price={tour.price}
+                preDefTourId={tour.preDefTourId}
               />
             ))}
           </div>

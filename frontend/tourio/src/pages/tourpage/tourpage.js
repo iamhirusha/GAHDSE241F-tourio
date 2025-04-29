@@ -1,70 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Header from '../../components/header';
 import './tourpage.css';
-import { useState } from "react";
-import Header from "../../components/header";
-import tourImage from '../../assets/images/img_kathmandu_1.jpg';
 
 const TourPage = () => {
-    const [activeTab, setActiveTab] = useState("home");
+  const { id } = useParams();
+  const [tour, setTour] = useState(null);
+  const [activeTab, setActiveTab] = useState("home");
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/tours/${id}`)
+      .then(res => res.json())
+      .then(data => setTour(data))
+      .catch(err => console.error('Failed to fetch tour details', err));
+  }, [id]);
+
+  if (!tour) return <div>Loading...</div>;
 
   return (
     <div className="tour-page">
-        <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div className="top-section">
         <div className="image-container">
-          <img src={tourImage} alt="Tour" />
+          <img src={tour.image} alt="Tour" />
         </div>
         <div className="info-container">
-          <h1 className="tour-title">Explore the Alps</h1>
-          <p className="tour-facilities">Facilities: Hotel, Meals, Guide</p>
-          <p className="tour-description">
-            Enjoy a breathtaking adventure through the snowy Alps with our all-inclusive package.
-          </p>
-          <p className="tour-price">$1,499</p>
+          <h1 className="tour-title">{tour.title}</h1>
+          <p className="tour-facilities">Facilities: {tour.facilities}</p>
+          <p className="tour-description">Explore the wonders of this region with our carefully curated package.</p>
+          <p className="tour-price">Rs. {tour.price}</p>
           <button className="book-button">Book Tour</button>
         </div>
       </div>
 
+      <h1 className="tour-title">Destinations</h1>
+      <p className="tour-facilities">Places that you explore</p>
       <div className="destinations-section">
         <div className="destinations-list">
-          <div className="destination-item">
-            <div className="bullet-point"></div>
-            <div className="destination-content">
-              <h3>Geneva</h3>
-              <p>Beautiful lakeside views and Swiss culture.</p>
+          {tour.destinations.map((dest, index) => (
+            <div className="destination-item" key={index}>
+              <div className="bullet-point"></div>
+              <div className="destination-content">
+                <h3>{dest.name}</h3>
+                <p>Location link: <a href={dest.mapUrl} target="_blank" rel="noopener noreferrer">{dest.mapUrl}</a></p>
+              </div>
             </div>
-          </div>
-          <div className="destination-item">
-            <div className="bullet-point"></div>
-            <div className="destination-content">
-              <h3>Zermatt</h3>
-              <p>Home of the iconic Matterhorn mountain.</p>
-            </div>
-          </div>
-          <div className="destination-item">
-            <div className="bullet-point"></div>
-            <div className="destination-content">
-              <h3>Interlaken</h3>
-              <p>Adventure capital with paragliding and rafting.</p>
-            </div>
-          </div>
-          <div className="destination-item">
-            <div className="bullet-point"></div>
-            <div className="destination-content">
-              <h3>Lucerne</h3>
-              <p>Historic charm with a modern twist.</p>
-            </div>
-          </div>
-          <div className="destination-item">
-            <div className="bullet-point"></div>
-            <div className="destination-content">
-              <h3>Bern</h3>
-              <p>Switzerland’s quaint and quiet capital.</p>
-            </div>
-          </div>
-        </div>
-        <div className="destinations-extra">
+          ))}
         </div>
       </div>
     </div>
