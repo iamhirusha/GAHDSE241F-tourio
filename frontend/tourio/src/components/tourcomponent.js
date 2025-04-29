@@ -1,11 +1,18 @@
 import React from "react";
 import './tourcomponent.css'; 
+import { useNavigate } from 'react-router-dom';
 //import { ReactComponent as BookmarkIcon } from '../assets/icons/icon_bookmark.svg';
 import { ReactComponent as ArrowIcon } from '../assets/icons/icon_right-arrow.svg';
 
-const TourComponent = ({ image, title, destinations, price }) => {
+const TourComponent = ({ image, title, destinations, price, preDefTourId }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/tour/${preDefTourId}`);
+  };  
+
   return (
-    <div className="tour-card">
+    <div className="tour-card" onClick={handleClick}>
       <div className="tour-image-container">
         <img src={image} alt={title} className="tour-image" />
       </div>
