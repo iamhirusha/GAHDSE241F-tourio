@@ -1,75 +1,150 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./loginpage.css"; // Importing the CSS file
+import React, { useState } from 'react';
+import './loginpage.css';
+import { ReactComponent as WarrantyIcon } from '../../assets/icons/icon_warranty.svg';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import axios from 'axios';
+import { auth } from '../../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
-
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const LoginPage = () => {
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Dummy authentication logic
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find((user) => user.email === email && user.password === password);
-    
-    if (!user) {
-      alert("Invalid email or password!");
-      return;
-    }
+  const [formData, setFormData] = useState({
+    loginemail: '',
+    loginpassword: ''
+  });
 
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
-    alert("Login successful!");
-    navigate("/dashboard");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
+  const handleGoogleSignup = () => {
+    console.log('Google Signup initiated');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    //const auth = getAuth();
+  
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.loginemail,
+        formData.loginpassword
+      );
+  
+      const idToken = await userCredential.user.getIdToken();
+  
+      // send token to backend
+      const response = await axios.post('http://localhost:5000/api/login', {
+        token: idToken,
+      });
+  
+      localStorage.setItem('uid', response.data.uid);
+
+      navigate('/home');
+    } catch (error) {
+      console.error('Login error:', error.message);
+    }
+  };
+  
+
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <div className="left-section">
-          <h2>Welcome back to <span>Tourio Login</span></h2>
-          <p>It's great to have you back!</p>
-          
-          <form onSubmit={handleLogin}>
-            <div className="input-group">
-              <label>Email</label>
-              <input type="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} required />
+    <div className="signup-container">
+      <div className="signup-wrapper">
+        <div className="signup-content">
+          <div className="signup-form">
+            <div className="signup-header">
+              <h2>Welcome back</h2>
+              <p>Join our platform and start your journey</p>
             </div>
-            
-            <div className="input-group">
-              <label>Password</label>
-              <input type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} required />
+
+            <div className="social-signup">
+              <button 
+                className="google-signup-btn" 
+                onClick={handleGoogleSignup}
+              >
+                <img 
+                  src="https://www.svgrepo.com/show/475656/google-color.svg" 
+                  alt="Google logo" 
+                />
+                Continue with Google
+              </button>
             </div>
-            
-            <div className="options">
-              <label>
-                <input type="checkbox" /> Remember me
-              </label>
-              <a href="#">Forgot password?</a>
+
+            <div className="divider">
+              <span>or</span>
             </div>
-            
-            <div className="buttons">
-              <button type="submit" className="login-btn">Login</button>
-              <button className="signup-btn">Create Account</button>
-            </div>
-          </form>
-          
-          <div className="social-login">
-            <p>Or login with</p>
-            <div className="social-buttons">
-              <a href="#" className="facebook">Facebook</a>
-              <a href="#" className="google">Google</a>
+
+            <form onSubmit={handleSubmit}>
+
+              <div className="login-form-group">
+                <label htmlFor="email">Email Address</label>
+                <input 
+                  type="email"
+                  id="loginemail"
+                  name="loginemail"
+                  value={formData.loginemail}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  required 
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input 
+                  type="loginpassword"
+                  id="loginpassword"
+                  name="loginpassword"
+                  value={formData.loginpassword}
+                  onChange={handleChange}
+                  placeholder="Create a strong password"
+                  minLength="8"
+                  required 
+                />
+              </div>
+
+              <div className="form-actions">
+                <button type="submit" className="login-btn">
+                  Login
+                </button>
+              </div>
+
+              <div className="form-footer">
+                <p>Don't have an account? <a href="/signuppage">Sign up</a></p>
+              </div>
+            </form>
+          </div>
+
+          <div className="signup-illustration">
+            <div className="illustration-image">
+              <div className="illustration-content">
+                <h3>Tourio Ensures Your Enjoy.</h3>
+                <p>Discover a world of opportunities and connections</p>
+
+                <div className="button-container">
+                  <button className="spbutton">
+                    <WarrantyIcon className="icon" />
+                    Ensure Value
+                  </button>
+                  <button className="spbutton">
+                    <WarrantyIcon className="icon" />
+                    Ensure Safety
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="right-section">
-          {/* Background Image */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;
