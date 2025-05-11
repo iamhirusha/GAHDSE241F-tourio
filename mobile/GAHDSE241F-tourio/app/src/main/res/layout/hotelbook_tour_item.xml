@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="16dp"
     app:cardCornerRadius="29dp"
-    app:cardBackgroundColor="#223E43"
+    app:cardBackgroundColor="#323E43"
     app:cardUseCompatPadding="false">
 
     <RelativeLayout
@@ -20,7 +20,7 @@
             android:gravity="bottom">
 
             <TextView
-                android:id="@+id/userProfTourTitle"
+                android:id="@+id/hotelBookTourTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
@@ -41,14 +41,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
-                        android:id="@+id/userProfTourID"
+                        android:id="@+id/hotelBookTourUserID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
                         android:textColor="#FFFFFF" />
 
                     <TextView
-                        android:id="@+id/userProfTourPrice"
+                        android:id="@+id/hotelBookTourPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
@@ -71,7 +71,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/userProfTourDate"
+                            android:id="@+id/hotelBookTourDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="16dp"

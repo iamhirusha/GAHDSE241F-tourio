@@ -53,6 +53,7 @@ class BookTourActivity : AppCompatActivity() {
 
                     findViewById<TextView>(R.id.tourdetailspgtitle).text = tourTitle
                     findViewById<TextView>(R.id.tourdetailspgfaci).text = tourFacilities
+                    findViewById<TextView>(R.id.tourdetailshotelID).text = hotelUserId
                     findViewById<TextView>(R.id.tourdetailspgprice).text = tourPrice
                     findViewById<TextView>(R.id.destinationInput1).text = destination1
                     findViewById<TextView>(R.id.destinationInput2).text = destination2
@@ -96,6 +97,7 @@ class BookTourActivity : AppCompatActivity() {
         val userId = currentUser.uid
         val tourTitle = findViewById<TextView>(R.id.tourdetailspgtitle).text.toString()
         val tourPrice = findViewById<TextView>(R.id.tourdetailspgprice).text.toString()
+        val hotelUserId = findViewById<TextView>(R.id.tourdetailshotelID).text.toString()
 
         // Generate a unique booking ID (you can use Firestore's document ID or a UUID)
         val tourBookingId = UUID.randomUUID().toString()
@@ -105,7 +107,7 @@ class BookTourActivity : AppCompatActivity() {
             "userId" to userId,
             "tourBookingId" to tourBookingId,
             "preDefTourId" to preDefTourId,
-            //"hotelUserId" to hotelUserId,
+            "hotelUserId" to hotelUserId,
             "tourTitle" to tourTitle,
             "tourPrice" to tourPrice,
             "bookingDate" to System.currentTimeMillis()
