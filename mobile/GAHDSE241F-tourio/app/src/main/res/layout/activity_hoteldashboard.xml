@@ -94,7 +94,7 @@
 
 
         <LinearLayout
-            android:id="@+id/travelRequestBox"
+            android:id="@+id/hotelTourBookings"
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:layout_weight="1"

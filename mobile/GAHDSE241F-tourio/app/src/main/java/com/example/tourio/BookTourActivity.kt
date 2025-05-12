@@ -8,6 +8,7 @@ import android.widget.Toast
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import java.util.*
@@ -52,6 +53,7 @@ class BookTourActivity : AppCompatActivity() {
 
                     findViewById<TextView>(R.id.tourdetailspgtitle).text = tourTitle
                     findViewById<TextView>(R.id.tourdetailspgfaci).text = tourFacilities
+                    findViewById<TextView>(R.id.tourdetailshotelID).text = hotelUserId
                     findViewById<TextView>(R.id.tourdetailspgprice).text = tourPrice
                     findViewById<TextView>(R.id.destinationInput1).text = destination1
                     findViewById<TextView>(R.id.destinationInput2).text = destination2
@@ -81,19 +83,31 @@ class BookTourActivity : AppCompatActivity() {
     private fun bookTour(preDefTourId: String) {
         val db = FirebaseFirestore.getInstance()
 
+        val auth = FirebaseAuth.getInstance()
+
+        // get current user ID
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         // Get details from the UI or fetched data
-        val hotelUserId = intent.getStringExtra("hotelUserId") ?: return
+        //val hotelUserId = intent.getStringExtra("hotelUserId") ?: return
+        val userId = currentUser.uid
         val tourTitle = findViewById<TextView>(R.id.tourdetailspgtitle).text.toString()
         val tourPrice = findViewById<TextView>(R.id.tourdetailspgprice).text.toString()
+        val hotelUserId = findViewById<TextView>(R.id.tourdetailshotelID).text.toString()
 
         // Generate a unique booking ID (you can use Firestore's document ID or a UUID)
         val tourBookingId = UUID.randomUUID().toString()
 
         // map of data to store in Firestore
         val bookingData = hashMapOf(
+            "userId" to userId,
             "tourBookingId" to tourBookingId,
             "preDefTourId" to preDefTourId,
-            //"hotelUserId" to hotelUserId,
+            "hotelUserId" to hotelUserId,
             "tourTitle" to tourTitle,
             "tourPrice" to tourPrice,
             "bookingDate" to System.currentTimeMillis()
