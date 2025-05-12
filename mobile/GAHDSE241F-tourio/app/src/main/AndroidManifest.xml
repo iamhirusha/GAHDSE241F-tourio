@@ -55,6 +55,8 @@
 
         <activity android:name=".MapsPageActivity"/>
 
+        <activity android:name=".HotelTourBookingsActivity"/>
+
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

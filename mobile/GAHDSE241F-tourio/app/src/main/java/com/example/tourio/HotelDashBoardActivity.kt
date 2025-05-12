@@ -42,8 +42,8 @@ class HotelDashBoardActivity : AppCompatActivity() {
         }
 
         hotelTourBookings.setOnClickListener {
-            //val intent = Intent(this, TravelerProfileActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, HotelTourBookingsActivity::class.java)
+            startActivity(intent)
         }
 
         viewHomeBox.setOnClickListener {
