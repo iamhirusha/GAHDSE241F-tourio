@@ -19,8 +19,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-
-
 const TourPage = () => {
   const { id } = useParams();
   const [tour, setTour] = useState(null);
@@ -32,6 +30,25 @@ const TourPage = () => {
       .then(data => setTour(data))
       .catch(err => console.error('Failed to fetch tour details', err));
   }, [id]);
+
+  const handleBookTour = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/stripe/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ tour }),
+      });
+
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error('Booking payment failed', error);
+    }
+  };
 
   if (!tour) return <div>Loading...</div>;
 
@@ -48,7 +65,7 @@ const TourPage = () => {
           <p className="tourpg-facilities">Facilities: {tour.facilities}</p>
           <p className="tourpg-description">Explore the wonders of this region with our carefully curated package.</p>
           <p className="tourpg-price">Rs. {tour.price}</p>
-          <button className="book-button">Book Tour</button>
+          <button className="book-button" onClick={handleBookTour}>Book Tour</button>
         </div>
       </div>
 
