@@ -1,0 +1,20 @@
+# Node modules (already built in container)
+node_modules
+
+# Local build output
+build
+
+# Log files
+npm-debug.log
+yarn-error.log
+
+.DS_Store
+.vscode
+.idea
+
+.git
+.gitignore
+
+# Docker config itself
+.dockerignore
+Dockerfile
