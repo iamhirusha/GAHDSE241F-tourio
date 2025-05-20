@@ -1,0 +1,70 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.form-container:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.tour-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tour-form input,
+.tour-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.tour-form input:focus,
+.tour-form textarea:focus {
+  border-color: #007aff;
+}
+
+.tour-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.tour-form button {
+  background-color: #007aff;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tour-form button:hover {
+  background-color: #005ecb;
+}
