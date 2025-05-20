@@ -7,6 +7,7 @@ const hotelRoutes = require('./src/routes/hotelRoutes');
 const tourRequestRoutes = require('./src/routes/tourRequestRoutes');
 const authRoutes = require('./src/routes/auth');
 const stripeRoutes = require('./src/routes/stripeRoutes');
+const addTourRequestRoutes = require('./src/routes/addTourRequestRoutes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api/hotels', hotelRoutes);
 app.use('/api/tourreq', tourRequestRoutes);
 app.use('/api', authRoutes);
 app.use('/api/stripe', stripeRoutes);
+app.use('/api/addtourrequest', addTourRequestRoutes);
 
 
 module.exports = app;
