@@ -8,6 +8,7 @@ const tourRequestRoutes = require('./src/routes/tourRequestRoutes');
 const authRoutes = require('./src/routes/auth');
 const stripeRoutes = require('./src/routes/stripeRoutes');
 const addTourRequestRoutes = require('./src/routes/addTourRequestRoutes');
+const dialogflowRoutes = require('./src/routes/dialogflowRoutes');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/api/tourreq', tourRequestRoutes);
 app.use('/api', authRoutes);
 app.use('/api/stripe', stripeRoutes);
 app.use('/api/addtourrequest', addTourRequestRoutes);
+app.use('/api/dialogflow', dialogflowRoutes);
 
 
 module.exports = app;

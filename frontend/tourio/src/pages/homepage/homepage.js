@@ -7,6 +7,7 @@ import bannerImage from '../../assets/images/img_kathmandu_1.jpg';
 import { useEffect} from 'react';
 import Header from "../../components/header";
 import TourComponent from "../../components/tourcomponent";
+import ChatBot from "../../components/ChatBot/ChatBot";
 import './homepage.css';
 
 const HomePage = () => {
@@ -59,6 +60,10 @@ const HomePage = () => {
               </button>
             </div>
           </div>
+        </div>
+
+        <div>
+          <ChatBot />
         </div>
       
         <div class="tour-section">
