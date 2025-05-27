@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
 import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
 import { ReactComponent as AddIcon } from '../../assets/icons/icon_add.svg';
@@ -18,6 +19,12 @@ const HomePage = () => {
 
   const handleSearchSubmit = () => {
     console.log("Searching for:", searchQuery);
+  };
+
+  const navigate = useNavigate();
+
+  const handleNavigateToTourRequest = () => {
+    navigate('/addtourrequest');
   };
 
   const [tours, setTours] = useState([]);
@@ -79,7 +86,7 @@ const HomePage = () => {
             <h2 className="goto-reqpage-title">Can't find exact tour?</h2>
             <p className="goto-reqpage-subtext">Simply publish a tour request with your preferences.</p>
           </div>
-          <button className="goto-reqpage-button">
+          <button className="goto-reqpage-button" onClick={handleNavigateToTourRequest}>
             <AddIcon className="search-icon" /> Create Request
           </button>
         </div>
