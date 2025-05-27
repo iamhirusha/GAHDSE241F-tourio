@@ -18,7 +18,11 @@ exports.addTourRequest = async (req, res) => {
     const newTourRequest = {
       tourTitle,
       userId,
-      destinations: [destination1, destination2, destination3, destination4, destination5].filter(Boolean),
+      destination1,
+      destination2,
+      destination3,
+      destination4,
+      destination5,
       expectedBudget,
       specialNotes,
       createdAt: new Date(),
