@@ -168,7 +168,7 @@ const TourCreationPage = () => {
               </div>
 
               <div className="input-group">
-                <label>Option Title</label>
+                
                 <input 
                   type="text"
                   value={formData.optionTitle}

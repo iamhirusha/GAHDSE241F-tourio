@@ -10,9 +10,12 @@ import Payment from "./pages/paymentpage/paymentpage";
 
 import RequestsPage from "./pages/requestspage/requestspage";
 import SignupPage from "./pages/singuppage/singuppage";
-import TourForm from "./pages/touraddpage/touraddpage";
 import TourPage from "./pages/tourpage/tourpage";
 import TourCreationPage from "./pages/touraddpage/touraddpage";
+import ProfilePage from "./pages/profilepage/profilepage";
+import FeedbackPage from "./pages/feedbackpage/feedbackpage";
+
+
 const AppRoutes = () => {
   return (
     <Router>
@@ -28,6 +31,9 @@ const AppRoutes = () => {
         <Route path="/tour/:id" element={<TourPage />} />
         <Route path="/hotelprofilepage" element={<HotelProfile/>} />
         <Route path="/hoteldashboard" element={<HotelDashboard />} />
+        <Route path="/profilepage" element={<ProfilePage/>} />
+        <Route path="/feedbackpage" element={<FeedbackPage />} />
+
         <Route path="/aa" element={<App/>} />
       </Routes>
     </Router>

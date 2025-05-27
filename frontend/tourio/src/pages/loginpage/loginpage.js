@@ -6,6 +6,7 @@ import axios from 'axios';
 import { auth } from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 
+
 const LoginPage = () => {
   const navigate = useNavigate();
 
