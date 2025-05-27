@@ -37,7 +37,7 @@ const Header = ({ activeTab, setActiveTab }) => {
       </nav>
       <div className="profile">
         <LogoIcon width={35} height={35} className="profile-icon" />
-        <span className="profile-name">Navodya</span>
+        <span className="profile-name">Profile</span>
       </div>
     </header>
   );

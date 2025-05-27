@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import Header from "../../components/header";
 import './requestpage.css';
 
@@ -55,6 +56,12 @@ const RequestsPage = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleNavigateToTourRequest = () => {
+    navigate('/addtourrequest');
+  };
+
   return (
     <div className="requestspage">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -67,7 +74,7 @@ const RequestsPage = () => {
           </div>
           <button 
             className="create-request-btn" 
-            onClick={handleCreateNewRequest}
+            onClick={handleNavigateToTourRequest}
           >
             <span className="plus-icon">+</span>
             Create New Request
