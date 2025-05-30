@@ -12,13 +12,9 @@ import RequestsPage from "./pages/requestspage/requestspage";
 import SignupPage from "./pages/singuppage/singuppage";
 import TourPage from "./pages/tourpage/tourpage";
 import TourCreationPage from "./pages/touraddpage/touraddpage";
-<<<<<<< HEAD
 import ProfilePage from "./pages/profilepage/profilepage";
 import FeedbackPage from "./pages/feedbackpage/feedbackpage";
-
-=======
 import AddTourRequest from "./pages/addtourrequestpage/addtourrequestpage";
->>>>>>> 09784af0d6020ed96e4376587b6e02ff5178fde9
 
 const AppRoutes = () => {
   return (
@@ -35,15 +31,10 @@ const AppRoutes = () => {
         <Route path="/tour/:id" element={<TourPage />} />
         <Route path="/hotelprofilepage" element={<HotelProfile/>} />
         <Route path="/hoteldashboard" element={<HotelDashboard />} />
-<<<<<<< HEAD
         <Route path="/profilepage" element={<ProfilePage/>} />
         <Route path="/feedbackpage" element={<FeedbackPage />} />
-
-=======
         <Route path="/addtourrequest" element={<AddTourRequest />} />
         <Route path="/notificationpage" element={<NotificationPage />} />
->>>>>>> 09784af0d6020ed96e4376587b6e02ff5178fde9
-        <Route path="/aa" element={<App/>} />
       </Routes>
     </Router>
   );
