@@ -6,6 +6,8 @@ import { ReactComponent as AddIcon } from '../../assets/icons/icon_add.svg';
 import bannerImage from '../../assets/images/img_kathmandu_1.jpg';
 import { useEffect} from 'react';
 import Header from "../../components/header";
+import Footer from "../../components/footer";
+import ContactSection from "../../components/ContactSection/contactsection";
 import TourComponent from "../../components/tourcomponent";
 import ChatBot from "../../components/ChatBot/ChatBot";
 import './homepage.css';
@@ -114,10 +116,13 @@ const HomePage = () => {
             ))}
           </div>
         </div>
-
+        <ContactSection />
+        <Footer/>
         <Outlet />
       </div>
+     
     </div>
+    
   );
 };
 
