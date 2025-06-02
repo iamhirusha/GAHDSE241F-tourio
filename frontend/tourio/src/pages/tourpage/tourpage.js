@@ -23,7 +23,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const TourPage = () => {
-  const { id: tourId } = useParams();
+  const { id: preDefTourId } = useParams();
   const [tour, setTour] = useState(null);
   const [activeTab, setActiveTab] = useState("home");
 
@@ -44,12 +44,13 @@ const TourPage = () => {
     }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/tours/${tourId}`)
+    fetch(`http://localhost:5000/api/tours/${preDefTourId}`)
       .then(res => res.json())
       .then(data => setTour(data))
       .catch(err => console.error('Failed to fetch tour details', err));
-  }, [tourId]);
+  }, [preDefTourId]);
 
+  // book tour function
   const handleBookTour = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/stripe/create-checkout-session', {
@@ -89,12 +90,12 @@ const TourPage = () => {
         starCount,
         tourType,
         feedbackText,
-        tourId,
+        preDefTourId,
       };
 
       try {
         const response = await axios.post(
-          'http://localhost:5000/api/feedback',
+          'http://localhost:5000/api/tourfeedback',
           payload,
           {
             headers: {

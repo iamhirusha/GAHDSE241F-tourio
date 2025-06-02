@@ -13,23 +13,23 @@ const Header = ({ activeTab, setActiveTab }) => {
   };
 
   return (
-    <header className="header">
+    <header className="main-header">
       <img src={logo} alt="Logo" className="logo" />
-      <nav className="tab-bar">
+      <nav className="header-tab-bar">
         <span
-          className={`tab ${activeTab === "home" ? "active" : ""}`}
+          className={`header-tab ${activeTab === "home" ? "active" : ""}`}
           onClick={() => handleTabClick("home")}
         >
           Tours
         </span>
         <span
-          className={`tab ${activeTab === "hotels" ? "active" : ""}`}
+          className={`header-tab ${activeTab === "hotels" ? "active" : ""}`}
           onClick={() => handleTabClick("hotels")}
         >
           Hotels
         </span>
         <span
-          className={`tab ${activeTab === "requests" ? "active" : ""}`}
+          className={`header-tab ${activeTab === "requests" ? "active" : ""}`}
           onClick={() => handleTabClick("requests")}
         >
           Requests
