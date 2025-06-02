@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/header';
+import axios from 'axios';
 import './tourpage.css';
 import bannerImage from '../../assets/images/img_kathmandu_1.jpg';
+import Footer from "../../components/footer";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -20,17 +23,34 @@ L.Icon.Default.mergeOptions({
 });
 
 const TourPage = () => {
-  const { id } = useParams();
+  const { id: preDefTourId } = useParams();
   const [tour, setTour] = useState(null);
   const [activeTab, setActiveTab] = useState("home");
 
+  // State for feedback form
+  const [starCount, setStarCount] = useState(0);
+  const [hoveredStar, setHoveredStar] = useState(0);
+  const [tourType, setTourType] = useState('');
+  const [feedbackText, setFeedbackText] = useState('');
+
+  const [user, setUser] = useState(null);
+  
+    useEffect(() => {
+      const auth = getAuth();
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        setUser(user);
+      });
+      return () => unsubscribe();
+    }, []);
+
   useEffect(() => {
-    fetch(`http://localhost:5000/api/tours/${id}`)
+    fetch(`http://localhost:5000/api/tours/${preDefTourId}`)
       .then(res => res.json())
       .then(data => setTour(data))
       .catch(err => console.error('Failed to fetch tour details', err));
-  }, [id]);
+  }, [preDefTourId]);
 
+  // book tour function
   const handleBookTour = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/stripe/create-checkout-session', {
@@ -49,6 +69,50 @@ const TourPage = () => {
       console.error('Booking payment failed', error);
     }
   };
+
+    // feedback form submit
+    const handleTourFeedbackSubmit = async (e) => {
+      e.preventDefault();
+
+      if (!user) {
+        alert('User not authenticated.');
+        return;
+      }
+
+      if (!starCount || !tourType || !feedbackText.trim()) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const token = await user.getIdToken();
+
+      const payload = {
+        starCount,
+        tourType,
+        feedbackText,
+        preDefTourId,
+      };
+
+      try {
+        const response = await axios.post(
+          'http://localhost:5000/api/tourfeedback',
+          payload,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        alert('Feedback submitted successfully!');
+        setStarCount(0);
+        setHoveredStar(0);
+        setTourType('');
+        setFeedbackText('');
+      } catch (error) {
+        console.error('Error submitting feedback:', error);
+        alert('Failed to submit feedback.');
+      }
+    };
 
   if (!tour) return <div>Loading...</div>;
 
@@ -110,6 +174,50 @@ const TourPage = () => {
           </MapContainer>
         </div>
       </div>
+      
+      <div className="tour-feedback-container">
+        <p className="Tour-Feedback-Title">Share Your Experience</p>
+        <p className="Tour-Feedback-Subtitle">Select stars according to your satisfaction</p>
+        <div className="star-rating">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              className={`star ${star <= (hoveredStar || starCount) ? 'filled' : ''}`}
+              onClick={() => setStarCount(star)}
+              onMouseEnter={() => setHoveredStar(star)}
+              onMouseLeave={() => setHoveredStar(0)}
+            >
+            ★
+            </span>
+          ))}
+        </div>
+
+        <div className="tour-type-buttons">
+          <p className='feedback-tour-type-text'>Select the tour type: </p>
+          {['Solo-Tour', 'Couple-Tour', 'Family-Tour', 'Friends-Tour'].map((type) => (
+            <button
+              key={type}
+              className={`tour-type-selector ${tourType === type ? 'selected' : ''}`}
+              onClick={() => setTourType(type)}
+            >
+              {type.replace('-', ' ')}
+            </button>
+          ))}
+        </div>
+
+        <textarea
+          className="tour-feedback-textarea"
+          placeholder="Write your feedback..."
+          value={feedbackText}
+          onChange={(e) => setFeedbackText(e.target.value)}
+          rows={5}
+        />
+
+        <button className="tour-feedback-submit-button" onClick={handleTourFeedbackSubmit}>
+          Publish Feedback
+        </button>
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -9,6 +9,7 @@ const authRoutes = require('./src/routes/auth');
 const stripeRoutes = require('./src/routes/stripeRoutes');
 const addTourRequestRoutes = require('./src/routes/addTourRequestRoutes');
 const dialogflowRoutes = require('./src/routes/dialogflowRoutes');
+const tourFeedbackRoutes = require('./src/routes/tourFeedbackRoutes');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/api', authRoutes);
 app.use('/api/stripe', stripeRoutes);
 app.use('/api/addtourrequest', addTourRequestRoutes);
 app.use('/api/dialogflow', dialogflowRoutes);
+app.use('/api/tourfeedback', tourFeedbackRoutes);
 
 
 module.exports = app;

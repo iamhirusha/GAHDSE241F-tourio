@@ -24,17 +24,17 @@ const AppRoutes = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/hotels" element={<HotelsPage />} />
         <Route path="/requests" element={<RequestsPage />} />
-        <Route path="/loginpage" element={<Login/>} />
-        <Route path="/singuppage" element={<SignupPage/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/singup" element={<SignupPage/>} />
         <Route path="/paymentpage" element={<Payment/>} />
         <Route path="/touraddpage" element={<TourCreationPage/>} />
         <Route path="/tour/:id" element={<TourPage />} />
-        <Route path="/hotelprofilepage" element={<HotelProfile/>} />
+        <Route path="/hotelprofile" element={<HotelProfile/>} />
         <Route path="/hoteldashboard" element={<HotelDashboard />} />
-        <Route path="/profilepage" element={<ProfilePage/>} />
+        <Route path="/userprofile" element={<ProfilePage/>} />
         <Route path="/feedbackpage" element={<FeedbackPage />} />
         <Route path="/addtourrequest" element={<AddTourRequest />} />
-        <Route path="/notificationpage" element={<NotificationPage />} />
+        <Route path="/notifications" element={<NotificationPage />} />
       </Routes>
     </Router>
   );

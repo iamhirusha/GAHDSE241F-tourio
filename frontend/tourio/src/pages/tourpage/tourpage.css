@@ -4,7 +4,7 @@
     margin: 40px;
     padding: 20px 100px;
     color: #1c1c1e;
-    background-color: #f5f5f7;
+    background-color: #ffffff;
   }
   
   .top-section {
@@ -79,6 +79,7 @@
     padding-right: 80px;
     display: flex;
     gap: 40px;
+    margin-bottom: 90px;
   }
 
   
@@ -92,8 +93,6 @@
     align-items: flex-start;
     margin-bottom: 24px;
   }
-
-
   
   .bullet-point {
     width: 14px;
@@ -139,4 +138,116 @@
     width: 22px;
     height: 22px;
   }
+
+  .tour-feedback-container {
+  padding: 12px;
+  border-radius: 12px;
+  width: 100%;
+  margin: 12px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
+.Tour-Feedback-Title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0px;
+}
+
+.Tour-Feedback-Subtitle {
+  font-size: 18px;
+  color: #797979;
+}
+
+.star-rating {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.star.filled {
+  color: #f5a623;
+}
+
+.tour-type-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: first baseline;
+  margin-bottom: 20px;
+}
+
+.feedback-tour-type-text {
+  font-size: 18px;
+  color: #333;
+}
+
+.tour-type-selector {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #aaa;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.tour-type-selector:hover {
+  background-color: #ececec;
+  border-color: #444444;
+}
+
+.tour-type-selector.selected {
+  background-color: #424242;
+  border-color: #525252;
+  color: white;
+}
+
+.tour-feedback-textarea {
+  width: 100%;
+  border-radius: 14px;
+  padding: 1rem;
+  border: 2px solid #dddddd;
+  resize: vertical;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border 0.3s;
+  margin-bottom: 20px;
+}
+
+.tour-feedback-textarea:focus {
+  border-color: #4e4e4e;
+  outline: none;
+}
+
+.tour-feedback-submit-button {
+  width: 320px;
+  background-color: transparent;
+  color: rgb(26, 26, 26);
+  border: 2px solid #616161;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tour-feedback-submit-button:hover {
+  background-color: #111111;
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
   
