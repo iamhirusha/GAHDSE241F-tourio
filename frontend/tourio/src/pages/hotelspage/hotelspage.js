@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/header";
 import HotelComponent from "../../components/hotelcomponent";
+import Footer from "../../components/footer";
 import { useEffect} from 'react';
 import { ReactComponent as SearchIcon } from '../../assets/icons/ic_search.svg';
 import './hotelspage.css';
@@ -65,6 +66,7 @@ const HotelsPage = () => {
             </div>
           </div>
         <Outlet />
+        <Footer />
       </div>
     </div>
   );

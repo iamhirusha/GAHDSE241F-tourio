@@ -31,7 +31,7 @@ const AppRoutes = () => {
         <Route path="/tour/:id" element={<TourPage />} />
         <Route path="/hotelprofilepage" element={<HotelProfile/>} />
         <Route path="/hoteldashboard" element={<HotelDashboard />} />
-        <Route path="/profilepage" element={<ProfilePage/>} />
+        <Route path="/profile" element={<ProfilePage/>} />
         <Route path="/feedbackpage" element={<FeedbackPage />} />
         <Route path="/addtourrequest" element={<AddTourRequest />} />
         <Route path="/notificationpage" element={<NotificationPage />} />
