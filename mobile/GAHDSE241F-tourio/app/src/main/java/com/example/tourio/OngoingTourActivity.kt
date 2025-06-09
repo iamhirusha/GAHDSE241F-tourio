@@ -1,5 +1,6 @@
 package com.example.tourio
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -23,6 +24,7 @@ class OngoingTourActivity : AppCompatActivity() {
         fetchTourDetails(preDefTourId)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun fetchTourDetails(preDefTourId: String) {
         val db = FirebaseFirestore.getInstance()
         db.collection("PredefinedTours").whereEqualTo("preDefTourId", preDefTourId).get()
@@ -38,6 +40,14 @@ class OngoingTourActivity : AppCompatActivity() {
                         doc.getString("destination5")
                     )
 
+                    val destinationLatLongs = listOf(
+                        doc.getString("des1MapUrl"),
+                        doc.getString("des2MapUrl"),
+                        doc.getString("des3MapUrl"),
+                        doc.getString("des4MapUrl"),
+                        doc.getString("des5MapUrl")
+                    )
+
                     findViewById<TextView>(R.id.ongoingTourTitle).text = title
 
                     val container = findViewById<LinearLayout>(R.id.destinationListContainer)
@@ -46,15 +56,17 @@ class OngoingTourActivity : AppCompatActivity() {
                         val view = layoutInflater.inflate(R.layout.ongoingtour_destination_item, container, false)
 
                         val status = statuses.getOrNull(index) ?: "notvisited"
+                        val destlatLong = destinationLatLongs.getOrNull(index) ?: "Unknown location"
 
-                        val destNumber = view.findViewById<TextView>(R.id.destinationNumber)
+                        val latLong = view.findViewById<TextView>(R.id.destinationNumber)
                         val destName = view.findViewById<TextView>(R.id.destinationName)
                         val statusText = view.findViewById<TextView>(R.id.statusText)
+                        val statusTextLable = view.findViewById<TextView>(R.id.statusTextLabel)
                         val circle = view.findViewById<View>(R.id.statusCircle)
                         val lineAbove = view.findViewById<View>(R.id.lineAbove)
                         val lineBelow = view.findViewById<View>(R.id.lineBelow)
 
-                        destNumber.text = "Destination ${index + 1}"
+                        latLong.text = destlatLong
                         destName.text = name ?: "N/A"
                         statusText.text = status.replaceFirstChar { it.uppercase() }
 
@@ -63,7 +75,7 @@ class OngoingTourActivity : AppCompatActivity() {
                                 circle.setBackgroundResource(R.drawable.circle_blue)
                                 statusText.setTextColor(Color.BLACK)
                                 destName.setTextColor(Color.BLACK)
-                                destNumber.setTextColor(Color.BLACK)
+                                latLong.setTextColor(Color.BLACK)
                                 lineAbove.setBackgroundColor(Color.parseColor("#426AAD"))
                                 lineBelow.setBackgroundColor(Color.parseColor("#426AAD"))
                             }
@@ -71,16 +83,20 @@ class OngoingTourActivity : AppCompatActivity() {
                                 val nextIndex = statuses.indexOf("notvisited")
                                 if (index == nextIndex) {
                                     circle.setBackgroundResource(R.drawable.circle_lightblue)
+                                    lineAbove.setBackgroundColor(Color.parseColor("#426AAD"))
+                                    lineBelow.setBackgroundColor(Color.LTGRAY)
                                 } else {
                                     circle.setBackgroundResource(R.drawable.circle_gray)
+                                    lineAbove.setBackgroundColor(Color.LTGRAY)
+                                    lineBelow.setBackgroundColor(Color.LTGRAY)
                                 }
 
                                 statusText.setTextColor(Color.GRAY)
+                                statusTextLable.setTextColor(Color.GRAY)
                                 destName.setTextColor(Color.GRAY)
-                                destNumber.setTextColor(Color.GRAY)
-                                lineAbove.setBackgroundColor(Color.LTGRAY)
-                                lineBelow.setBackgroundColor(Color.LTGRAY)
+                                latLong.setTextColor(Color.GRAY)
                             }
+
                         }
 
                         container.addView(view)
@@ -90,5 +106,23 @@ class OngoingTourActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "Error fetching tour", Toast.LENGTH_SHORT).show()
             }
+
+        val visitedCount = statuses.count { it == "visited" }
+        val totalDestinations = 5
+        val upcomingCount = totalDestinations - visitedCount
+        val progressPercent = (visitedCount * 100) / totalDestinations
+
+        findViewById<TextView>(R.id.progressPercentageText).text =
+            "$progressPercent% of tour completed"
+        findViewById<TextView>(R.id.visitedText).text =
+            "$visitedCount destinations visited"
+        findViewById<TextView>(R.id.upcomingText).text =
+            "$upcomingCount upcoming destinations"
+        findViewById<TextView>(R.id.centerPercentageText).text =
+            "$progressPercent%"
+
+        val progressBar = findViewById<ProgressBar>(R.id.circularProgressBar)
+        progressBar.progress = progressPercent
+
     }
 }
