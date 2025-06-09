@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:paddingVertical="30dp"
+    android:paddingHorizontal="35dp">
+
+    <LinearLayout
+        android:id="@+id/destinationListContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ongoingTourTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ongoing Tour"
+            android:textSize="19sp"
+            android:textColor="#111111"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ongoing Tour"
+            android:textSize="13sp"
+            android:textColor="#111111"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>
