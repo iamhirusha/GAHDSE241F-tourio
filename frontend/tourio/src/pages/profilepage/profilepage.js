@@ -1,38 +1,25 @@
 
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import './profilepage.css';
+import TourComponent from "../../components/tourcomponent";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState('about');
 
+  const [tours, setTours] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/tours')
+      .then(res => res.json())
+      .then(data => setTours(data))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <div className="profile-container">
       <div className="profile-card">
-        {/* Header */}
-        <header className="header">
-          <div className="logo">
-            <div className="logo-circle">D</div>
-            <span className="logo-text">Dilshan Sathsara</span>
-          </div>
-          
-          <div className="search-container">
-            <input 
-              type="text" 
-              placeholder="Search" 
-              className="search-input" 
-            />
-          </div>
-          
-          <div className="nav-items">
-            <span className="nav-item">Find Tours</span>
-            <div className="nav-item messages">
-              <span>Messages</span>
-              <span className="badge">4</span>
-            </div>
-            <span className="nav-item">My Contacts</span>
-            <div className="profile-avatar"></div>
-          </div>
-        </header>
+        
 
         {/* Main Content */}
         <div className="profile-content">
@@ -65,8 +52,7 @@ const ProfilePage = () => {
                   <span className="location-tag secondary-tag">Secondary</span>
                 </div>
                 <div className="location-address">
-                  <p>Street, Sigiriya, Central
-</p>
+                  <p>Street, Sigiriya, Central</p>
                   <p>Sri Lanka(78.158.187.65)</p>
                 </div>
               </div>
@@ -78,8 +64,7 @@ const ProfilePage = () => {
                   <span className="location-tag secondary-tag">Tertiary</span>
                 </div>
                 <div className="location-address">
-                  <p>capital city in Central Province
-</p>
+                  <p>capital city in Central Province</p>
                   <p>Sri Lanka(67.158.187.65)</p>
                 </div>
               </div>
@@ -127,16 +112,16 @@ const ProfilePage = () => {
               </button>
             </div>
 
-            <div className="tabs">
+            <div className="user-profile-tabs">
               <button 
-                className={`tab ${activeTab === 'timeline' ? 'active' : ''}`}
-                onClick={() => setActiveTab('timeline')}
+                className={`user-profile-tab ${activeTab === 'tours' ? 'active' : ''}`}
+                onClick={() => setActiveTab('tours')}
               >
-                <span className="clock-icon">🕒</span>
-                <span>Timeline</span>
+                <span className="clock-icon">🧭</span>
+                <span>Tours</span>
               </button>
               <button 
-                className={`tab ${activeTab === 'about' ? 'active' : ''}`}
+                className={`user-profile-tab ${activeTab === 'about' ? 'active' : ''}`}
                 onClick={() => setActiveTab('about')}
               >
                 <span className="about-icon">👤</span>
@@ -188,11 +173,27 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {activeTab === 'timeline' && (
-                <div className="timeline-content">
-                  Timeline content would appear here
+              {activeTab === 'tours' && (
+                <div className="tours-container">
+                  <div className="tour-list">
+                    {tours.length > 0 ? (
+                      tours.map((tour, index) => (
+                        <TourComponent
+                          key={index}
+                          image={tour.image}
+                          title={tour.title}
+                          destinations={tour.destinations}
+                          price={tour.price}
+                          preDefTourId={tour.preDefTourId}
+                        />
+                      ))
+                    ) : (
+                      <p>Loading tours...</p>
+                    )}
+                  </div>
                 </div>
               )}
+
             </div>
           </main>
         </div>
