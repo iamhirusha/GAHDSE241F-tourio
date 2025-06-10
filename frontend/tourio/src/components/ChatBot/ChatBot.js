@@ -10,10 +10,11 @@ const ChatBot = () => {
 
   return (
     <>
+      <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
       <df-messenger
         intent="WELCOME"
-        chat-title="Tourio Assistant"
-        agent-id="touriobot-ebqr"
+        chat-title="TourioBot"
+        agent-id="ca65af6c-cfca-45c4-8c77-94fc61055c75"
         language-code="en"
       ></df-messenger>
     </>

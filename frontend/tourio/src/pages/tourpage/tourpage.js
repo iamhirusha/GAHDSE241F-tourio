@@ -43,6 +43,17 @@ const TourPage = () => {
       return () => unsubscribe();
     }, []);
 
+    // Fetch feedbacks
+    const [feedbacks, setFeedbacks] = useState([]);
+
+    useEffect(() => {
+      fetch(`/api/gettourfeedbacks/${preDefTourId}`)
+        .then(res => res.json())
+        .then(setFeedbacks)
+        .catch(err => console.error('Error fetching feedbacks:', err));
+    }, [preDefTourId]);
+
+
   useEffect(() => {
     fetch(`http://localhost:5000/api/tours/${preDefTourId}`)
       .then(res => res.json())
@@ -217,6 +228,25 @@ const TourPage = () => {
           Publish Feedback
         </button>
       </div>
+
+      <div className="feedback-section">
+        <h2 className="feedback-title">User Feedback</h2>
+        {feedbacks.length === 0 ? (
+          <p className="no-feedback">No feedback available.</p>
+        ) : (
+          feedbacks.map(feedback => (
+            <div className="feedback-card" key={feedback.tourFeedbackId}>
+              <div className="feedback-header">
+                <span className="feedback-type">{feedback.tourFeedbackType}</span>
+                <span className="feedback-stars">⭐ {feedback.tourFeedbackStarCount}</span>
+              </div>
+              <p className="feedback-text">{feedback.tourFeedbackText}</p>
+              <p className="feedback-user">User ID: {feedback.userId}</p>
+            </div>
+          ))
+        )}
+      </div>
+
       <Footer />
     </div>
   );
