@@ -59,6 +59,8 @@
 
         <activity android:name=".OngoingTourActivity"/>
 
+        <activity android:name=".HotelOngoingTourActivity"/>
+
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

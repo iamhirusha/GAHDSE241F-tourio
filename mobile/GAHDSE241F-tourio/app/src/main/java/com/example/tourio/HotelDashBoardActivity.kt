@@ -14,6 +14,7 @@ class HotelDashBoardActivity : AppCompatActivity() {
     private lateinit var yourToursBox: LinearLayout
     private lateinit var hotelTourBookings: LinearLayout
     private lateinit var viewHomeBox: LinearLayout
+    private lateinit var hotelOngoingToursBox: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -27,6 +28,7 @@ class HotelDashBoardActivity : AppCompatActivity() {
         yourToursBox = findViewById(R.id.yourToursBox)
         hotelTourBookings = findViewById(R.id.hotelTourBookings)
         viewHomeBox = findViewById(R.id.viewHomeBox)
+        hotelOngoingToursBox = findViewById(R.id.hotelOngoingToursBox)
 
         // Set click listeners for navigation
         profileBox.setOnClickListener {
@@ -48,6 +50,12 @@ class HotelDashBoardActivity : AppCompatActivity() {
 
         viewHomeBox.setOnClickListener {
             val intent = Intent(this, PreDefinedToursFormActivity::class.java)
+            startActivity(intent)
+        }
+
+        hotelOngoingToursBox.setOnClickListener {
+            val intent = Intent(this, HotelOngoingTourActivity::class.java)
+            //intent.putExtra("userId", userId)
             startActivity(intent)
         }
 
