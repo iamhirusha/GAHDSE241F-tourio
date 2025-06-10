@@ -19,6 +19,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var adapter: PredefinedTourAdapter
     private val preDefTourList = mutableListOf<PredefinedTour>()
+    private val tourBookingMap = mutableMapOf<String, String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,10 +35,13 @@ class ProfileFragment : Fragment() {
 
         // Initialize the adapter and set the item click listener
         adapter = PredefinedTourAdapter(preDefTourList) { preDefTourId ->
-            val intent = Intent(activity, BookTourActivity::class.java)
+            val tourBookingId = tourBookingMap[preDefTourId]
+            val intent = Intent(activity, OngoingTourActivity::class.java)
             intent.putExtra("preDefTourId", preDefTourId)
+            intent.putExtra("tourBookingId", tourBookingId)
             startActivity(intent)
         }
+
 
         recyclerView.adapter = adapter
 
@@ -87,7 +91,15 @@ class ProfileFragment : Fragment() {
             .whereEqualTo("userId", userId)
             .get()
             .addOnSuccessListener { bookingResult ->
-                val preDefTourIds = bookingResult.documents.mapNotNull { it.getString("preDefTourId") }
+                // map bookingId
+                val preDefTourIds = bookingResult.documents.mapNotNull { doc ->
+                    val preDefTourId = doc.getString("preDefTourId")
+                    val tourBookingId = doc.id
+                    if (preDefTourId != null) {
+                        tourBookingMap[preDefTourId] = tourBookingId // map preDefTourId to bookingId
+                        preDefTourId
+                    } else null
+                }
 
                 if (preDefTourIds.isEmpty()) {
                     preDefTourList.clear()
