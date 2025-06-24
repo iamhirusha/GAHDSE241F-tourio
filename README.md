@@ -34,6 +34,20 @@ The Tour Plan Management System is a web and mobile application designed to stre
 - *Database*: Google Firebase
 - *Authentication*: Firebase Authentication
 
+## Setup
+Install dependencies before starting the backend server:
+
+```bash
+cd backend/tourio
+npm install --ignore-scripts
+```
+
+Then run the development server with:
+
+```bash
+npm run dev
+```
+
 
 
 ## Repository URL
